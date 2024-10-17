@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YummyFit</title>
+    <link rel="shortcut icon" href="/Images/candy.png">
+    <link rel="stylesheet" type="text/css" href="/CSS/sign.css">
+    <link rel="stylesheet" type="text/css" href="/CSS/base.css">
+</head>
+<body>
+    <div class="sign">
+        <div class="entireContainer">
+            <div class="projectName">· YummyFit ·</div>
+            <div class="mainFrame">
+                <div class="signFrame">
+                    <div class="signinSection">
+                        <div class="helloIcon"><img src="/Images/hello.png"/></div>
+                        <input type="text" name="signinEmail" class="signinEmail" placeholder="E-mail" autocomplete="off"/>
+                        <input type="password" name="signinPassword" class="signinPassword" placeholder="Password"/> 
+                        <button class="signinButton">Login</button>
+                        <!-- <a href="https://yummy-fit.com/auth/google">
+                            <div class="googleSign">
+                                <div class="googleSignImg"><img src="/Images/google.png"/></div>
+                                <div class="googleSignText">Continue with Google</div>
+                            </div>
+                        </a> -->
+                        <div class="changeToSignup">Don't have an account? Create</div> 
+                    </div>
+                    <div class="signupSection">
+                        <div class="welcomeIcon"><img src="/Images/welcome.png"/></div>
+                        <input type="text" name="signupName" class="signupName" placeholder="Name" autocomplete="off"/>
+                        <input type="text" name="signupEmail" class="signupEmail" placeholder="E-mail" autocomplete="off"/>
+                        <input type="password" name="signupPassword" class="signupPassword" placeholder="Password(6 to 20 alphanumeric characters)"/>
+                        <div class="passwordNotice">*6-20 chars, at least one letter and one number!</div>
+                        <button class="signupButton">Create account</button>
+                        <div class="changeToSignin">Already have an account? Sign in</div> 
+                    </div>                
+                </div>
+                <div class="sloganFrame">
+                    <div class="slogan">
+                        <div class="sloganText">Eat Yummy,</div>
+                        <div class="sloganText">with Fitness.</div>
+                        <div class="changeToIntroductionButton">> > > Back To Introduction</div>
+                    </div>
+                </div>
+                <div class="sloganRWD">
+                    <div class="slogan">
+                        <div class="sloganText">Eat</div>
+                        <div class="sloganText">Yummy,</div>
+                        <div class="sloganText">with</div>
+                        <div class="sloganText">Fitness.</div>
+                    </div>
+                </div>
+                <div class="sloganTextMobile">
+                    <div>Eat Yummy,with Fitness.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="introductionPage">
+        <div class="introductionFrameColor">
+            <div class="introductionFrame">
+                <div class="introductionFrameTitle">· YummyFit ·</div>
+                <div class="login"><div class="loginIcon"><img src="/Images/login.png"/></div>Login</div>
+            </div>
+        </div>
+        <div class="introductionMainFrame">
+            <div class="introductionMain">
+                <div class="introductionTextFrame">
+                    <div class="introductionTextBackground"></div>
+                    <div class="introductionSlogan">Your diet and nutrition partner for life.</div>
+                </div>
+                <div class="mealIntakePhotoFrame">
+                    <div class="photoBlock">
+                        <div class="leftGif">
+                            <img src="/Images/mealIntakePhoto.gif"/>
+                        </div>
+                        <div class="text">
+                            <div class="titleText">Record Daily Diet</div>
+                            <div class="contentText">
+                                <br>A food diary easily tracks your calorie and macronutrients intake.</br>
+                                <br>It also allows you to store photos of your meals.</br>
+                            </div> 
+                            <div class="dataSource">
+                                <br>Food data source :</br>
+                                <br>TFDA & USDA Agricultural Research Service</br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="addOwnFoodPhotoFrame">
+                    <div class="photoBlock">
+                        <div class="text">
+                            <div class="titleText">Create Self-defined Food</div>
+                            <div class="contentText">
+                                <br>Personalize your food based on individual needs.</br>
+                                <br>Feature: Support auto-scan for nutrition facts label</br>
+                            </div> 
+                        </div>
+                        <div class="rightGif">
+                            <img src="/Images/ownFoodNutrientionFact.gif"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="dailyIntakeTargetPhotoFrame">
+                    <div class="photoBlock">
+                        <div class="leftGif">
+                            <img src="/Images/dailyIntakeTarget.gif"/>
+                        </div>
+                        <div class="text">
+                            <div class="titleText">Analyze Daily & Weekly Intake Data</div>
+                            <div class="contentText">
+                                <br>Help you reach target values.</br>
+                                <br>Enjoy yummy food while also taking steps towards a healthier lifestyle.</br>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="socialMediaPhotoFrame">
+                    <div class="photoBlock">
+                        <div class="text">
+                            <div class="titleText">Social Media Platform</div>
+                            <div class="contentText">
+                                <br>Provide platform to connect food enthusiasts and facilitate interaction among them.</br>
+                                <br>Allows users to check-in place, sharing pictures & articles.</br>
+                            </div> 
+                        </div>
+                        <div class="rightGif">
+                            <img src="/Images/socialMedia.gif"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div th:insert="~{footer::foot}"></div> 
+        </div>        
+    </div>
+
+    <script src="/JS/sign.js"></script>
+</body>
+</html>
