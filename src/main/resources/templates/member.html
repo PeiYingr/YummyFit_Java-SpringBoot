@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>YummyFit</title>
+    <link rel="shortcut icon" href="/Images/candy.png">
+    <link rel="stylesheet" type="text/css" href="/CSS/member.css">
+    <link rel="stylesheet" type="text/css" href="/CSS/base.css">
+</head>
+<body>
+    <div class="mainLoading">
+        <div class="mainLoadingText">Loading</div>
+        <img src="/Images/loading.gif"/>
+    </div>
+    <div class="main">
+        <div th:insert="~{navbar::first}"></div>
+        <div th:insert="~{navbar::second}"></div>
+        <div class="memberFrame">
+            <div class="memberBase">Member Profile</div>
+            <div class="memberDetailFrame">
+                <div class="memberPhotoFrame">
+                    <div class="memberPhotoBlock">
+                        <div class="memberPhoto"><img/></div>
+                        <div class="avatarPreviewText">preview</div>
+                    </div>
+                    <form id="form" enctype="multipart/form-data">
+                        <div class="form">
+                            <img src="/Images/add2.png"/>
+                            <span>Select Avatar</span>
+                            <input type="file" class="avatarFile" accept="image/*"/>                                
+                        </div>
+                        <div class="avatarUpload" type="button">Upload</div>
+                    </form>
+                    <div class="avatarLoading">
+                        <div class="avatarLoadingText">Loading</div>
+                        <img src="/Images/loading.gif"/>
+                    </div>
+                    <ul>
+                        <li><span class="flowerEmoji">✿</span> Name：<span class="memberName"></span></li>
+                        <li><span class="flowerEmoji">✿</span> E-mail：<span class="memberMail"></span></li>                    
+                    </ul>
+                </div>
+                <div class="targetFrame">
+                    <div class="targetBlock">
+                        <div class="target">
+                            <div class="targetText">Daily Target</div>
+                            <div class="editTarget">Edit</div>
+                        </div>
+                        <div class="targetMacros">
+                            <div class="macros">
+                                <div class="textKcal">Calories</div>
+                                <div class="textProtein">Protein</div>
+                                <div class="textFat">Fat</div>
+                                <div class="textCarbs">Carbos</div>                            
+                            </div>
+                            <div class="targetMacrosValue">
+                                <div class="targetKcalValue"></div>
+                                <div class="targetProteinValue"></div>
+                                <div class="targetFatValue"></div>
+                                <div class="targetCarbsValue"></div>                            
+                            </div>
+                            <div class="targetMacrosPercentage">
+                                <div class="targetKcalPercentage"></div>
+                                <div class="targetProteinPercentage"></div>
+                                <div class="targetFatPercentage"></div>
+                                <div class="targetCarbsPercentage"></div>                            
+                            </div>
+                            <div class="noTargetData">No target.<br>Please edit.</div>
+                        </div>                    
+                    </div>
+                    <div class="targetInputBlock">
+                        <div class="target">
+                            <div class="targetText">Target Nutrients</div>
+                            <div class="cancelEditTarget">Cancel</div>
+                        </div>
+                        <div class="targetMacros">
+                            <div class="macros">
+                                <div class="textKcal">Calories</div>
+                                <div class="textProtein">Protein</div>
+                                <div class="textFat">Fat</div>
+                                <div class="textCarbs">Carbos</div>                            
+                            </div>
+                            <div class="targetMacrosInput">
+                                <input type="text"  class="targetKcalInput" autocomplete="off"/>
+                                <input type="text"  class="targetProteinInput" placeholder="(%)" autocomplete="off"/>
+                                <input type="text"  class="targetFatInput" placeholder="(%)" autocomplete="off"/>
+                                <input type="text"  class="targetCarbsInput" placeholder="(%)" autocomplete="off"/>                         
+                            </div>
+                        </div>
+                        <div class="updateTarget">Confirm</div>               
+                    </div>                              
+                </div>
+            </div>
+        </div>
+        <div th:insert="~{footer::foot}"></div>     
+    </div>
+    <script src="/JS/member.js"></script>
+    <script src="/JS/base.js"></script>
+</body>
+</html>
