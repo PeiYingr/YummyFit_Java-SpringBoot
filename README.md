@@ -1,4 +1,4 @@
-# [YummyFit](https://yummy-fit.com/)
+# YummyFit
 YummyFit is a food diary website that aims to help you record your daily diet and allows you to easily track your calorie and macronutrient intake.
 
 ## Demo
@@ -34,7 +34,6 @@ YummyFit is a food diary website that aims to help you record your daily diet an
 
 ## Main Features
 * Member System
-    * Supports local sign-in or sign-in with Google account (OAuth2.0).
     * User authentication is achieved with Json Web Token.
 * Diet Record Features
     * Supports searching for all foods available on this website.
@@ -45,10 +44,11 @@ YummyFit is a food diary website that aims to help you record your daily diet an
 
 ## Architecture
 * Server Architecture
+![image](https://github.com/user-attachments/assets/bff5896d-7215-414a-9780-b45616bcbd32)
 
 
 ## Database Schema
-
+![image](https://github.com/user-attachments/assets/b7590f3e-2fe1-432f-9324-afa678d36756)
 
 ## Backend Technique
 #### Environment
