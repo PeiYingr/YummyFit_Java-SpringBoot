@@ -29,6 +29,9 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
     @Query("SELECT f.name FROM Food f WHERE f.foodId = :foodId")
     String findFoodByFoodId(String foodId);
 
+    @Query("SELECT f FROM Food f WHERE f.foodId = :foodId")
+    Food findFoodAllByFoodId(String foodId);
+
     @Modifying
     @Transactional
     @Query("DELETE FROM Food f WHERE f.userId = :userId AND f.name = :foodName")

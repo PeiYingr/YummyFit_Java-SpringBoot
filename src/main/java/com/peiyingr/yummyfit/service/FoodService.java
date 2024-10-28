@@ -8,18 +8,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.peiyingr.yummyfit.Response.YummyFitResponse;
+import com.peiyingr.yummyfit.service.IntakeService;
 import com.peiyingr.yummyfit.dto.food.DeleteFoodDTO;
 import com.peiyingr.yummyfit.dto.food.FoodDTO;
 import com.peiyingr.yummyfit.dto.food.NewFoodDTO;
 import com.peiyingr.yummyfit.dto.user.UserDTO;
 import com.peiyingr.yummyfit.entity.Food;
+import com.peiyingr.yummyfit.entity.Intake;
 import com.peiyingr.yummyfit.entity.User;
 import com.peiyingr.yummyfit.repository.FoodRepository;
+import com.peiyingr.yummyfit.repository.IntakeRepository;
+
 
 @Service
 public class FoodService {
     @Autowired
     public FoodRepository foodRepository;
+
+    @Autowired
+    public IntakeRepository intakeRepository;
+
+    @Autowired
+    public IntakeService intakeService;
 
     public List<FoodDTO> getUserFood (UserDTO userDTO) {
         User userId = new User();
@@ -96,16 +106,29 @@ public class FoodService {
         return foodRepository.searchIfFoodExist(userId, foodName); 
     }
 
-    public DeleteFoodDTO deleteFood(UserDTO userDTO, String foodID) {
-        User userId = new User();
-        BeanUtils.copyProperties(userDTO, userId);
-        String foodName = findFoodByFoodId(foodID);
+    public DeleteFoodDTO deleteFood(UserDTO userDTO, String foodId) {
+        try {
+            User userId = new User();
+            BeanUtils.copyProperties(userDTO, userId);
+            String foodName = findFoodByFoodId(foodId);
 
-        foodRepository.deleteFood(userId, foodName);
-
-        DeleteFoodDTO deleteFoodDTO = new DeleteFoodDTO();
-        deleteFoodDTO.setFoodId(foodID);
-        deleteFoodDTO.setName(foodName);
-        return deleteFoodDTO;
+            Food food = foodRepository.findFoodAllByFoodId(foodId);
+            List<Intake> ownFoodIntakeID = intakeRepository.findThisOwnFoodIntake(userId, food);
+    
+            if (!ownFoodIntakeID.isEmpty()) {
+                for (Intake intake : ownFoodIntakeID) {
+                    intakeService.deleteIntakeFood(String.valueOf(intake.getIntakeId()));
+                }
+            }
+            foodRepository.deleteFood(userId, foodName);
+            DeleteFoodDTO deleteFoodDTO = new DeleteFoodDTO();
+            deleteFoodDTO.setFoodId(foodId);
+            deleteFoodDTO.setName(foodName);
+            return deleteFoodDTO;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            DeleteFoodDTO deleteFoodDTO = new DeleteFoodDTO();
+            return deleteFoodDTO;
+        }
     }
 }
